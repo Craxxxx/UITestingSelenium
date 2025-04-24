@@ -19,13 +19,13 @@ repositories {
 
 dependencies {
     // Use JUnit Jupiter for testing.
-    //testImplementation libs.junit.jupiter
-    //testRuntimeOnly 'org.junit.platform:junit-platform-launcher'
+    testImplementation libs.junit.jupiter
+    testRuntimeOnly 'org.junit.platform:junit-platform-launcher'
 
     //core selenium web driver
     testImplementation 'org.seleniumhq.selenium:selenium-java:4.31.0'
     //auto driver management (optional)
-    testImplementation 'io.github.bonigarcia:webdrivermanager:5.5.1' 
+    testImplementation 'io.github.bonigarcia:webdrivermanager:5.0.3' 
 
     //testNG
     testImplementation 'org.testng:testng:7.8.0'
@@ -58,5 +58,7 @@ tasks.test {
     }
      testLogging {
         events "passed", "skipped", "failed"
+        exceptionFormat "full" 
+        showStandardStreams = true 
     }
 }
