@@ -14,6 +14,7 @@ import io.github.bonigarcia.wdm.WebDriverManager;
 public class Setup {
 
     protected static WebDriver driver;
+    protected static WebDriver driver2;
     
     @BeforeSuite
     public void setupDriver()
@@ -24,6 +25,7 @@ public class Setup {
 
         System.out.println("Setting up env");
         driver = new ChromeDriver();
+        driver2 = new ChromeDriver();
     }
 
 
@@ -32,11 +34,19 @@ public class Setup {
     public void teardownTest()
     {
         System.out.println("Tearing down env");
-        //check if the driver is not null and close the browser
+        //check if the first driver is not null and close the browser
         if(driver != null)
         {
             driver.quit();
         }
+
+        //check if the second driver is not null and close the browser
+        if(driver2 != null)
+        {
+            driver2.quit();
+        }
+
+
         
     }
 }
