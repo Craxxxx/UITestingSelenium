@@ -8,6 +8,8 @@
 plugins {
     // Apply the application plugin to add support for building a CLI application in Java.
     id 'application'
+    //allure plugin 
+    id 'io.qameta.allure' version '2.12.0'
 }
 
 repositories {
@@ -17,9 +19,21 @@ repositories {
 
 dependencies {
     // Use JUnit Jupiter for testing.
-    testImplementation libs.junit.jupiter
+    //testImplementation libs.junit.jupiter
+    //testRuntimeOnly 'org.junit.platform:junit-platform-launcher'
 
-    testRuntimeOnly 'org.junit.platform:junit-platform-launcher'
+    //core selenium web driver
+    testImplementation 'org.seleniumhq.selenium:selenium-java:4.31.0'
+    //auto driver management (optional)
+    testImplementation 'io.github.bonigarcia:webdrivermanager:5.5.1' 
+
+    //testNG
+    testImplementation 'org.testng:testng:7.8.0'
+    //allure testNG adapter
+    testImplementation 'io.qameta.allure:allure-testng:2.29.1'
+
+    //hamcrest for comparison
+    testImplementation 'org.hamcrest:hamcrest:2.2'
 
     // This dependency is used by the application.
     implementation libs.guava
@@ -37,7 +51,12 @@ application {
     mainClass = 'selenium.App'
 }
 
-tasks.named('test') {
-    // Use JUnit Platform for unit tests.
-    useJUnitPlatform()
+tasks.test {
+    useTestNG {
+        suites 'src/test/resources/testing.xml'
+        listeners = ['io.qameta.allure.testng.AllureTestNg']
+    }
+     testLogging {
+        events "passed", "skipped", "failed"
+    }
 }
