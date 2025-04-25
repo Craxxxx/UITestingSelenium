@@ -25,7 +25,7 @@ dependencies {
     //core selenium web driver
     testImplementation 'org.seleniumhq.selenium:selenium-java:4.31.0'
     //auto driver management (optional)
-    testImplementation 'io.github.bonigarcia:webdrivermanager:5.0.3' 
+    testImplementation 'io.github.bonigarcia:webdrivermanager:6.1.0' 
 
     //testNG
     testImplementation 'org.testng:testng:7.8.0'

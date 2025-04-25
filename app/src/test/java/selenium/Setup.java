@@ -22,9 +22,9 @@ public class Setup {
     {
         System.out.println("Setting up driver");
         //this methods automatically downloads and configures the correct driver binary at runtime
-        // Optionally pre-create named drivers, or let tests lazily fetch them.
-        // DriverManager.getDriver("siteA");
-        // DriverManager.getDriver("siteB");
+        // Optionally pre-create named drivers and stroring it in the hashmaps.
+        DriverManager.getDriver("siteA");
+        DriverManager.getDriver("siteB");
     }
 
 

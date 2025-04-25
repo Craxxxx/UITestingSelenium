@@ -22,9 +22,11 @@ public class SeleniumMethod extends Setup{
     @Test
     public void testTwowebsites()
     {
+        //declaring a variable with WebDriver data type to obtain the driver object
         WebDriver siteA = DriverManager.getDriver("siteA");
         WebDriver siteB = DriverManager.getDriver("siteB");
 
+        //use the driver object to open the website
         siteA.get("https://www.google.com/");
         siteB.get("https://www.saucedemo.com/");
 
@@ -103,13 +105,6 @@ public class SeleniumMethod extends Setup{
         System.out.println("The url of the current page is : " + currentUrl );
     }
 
-    public void WaitMethod()
-    {
-        //implicit wait
-
-        //explicit wait
-
-        //fluent wait
-    }
+   
     
 }

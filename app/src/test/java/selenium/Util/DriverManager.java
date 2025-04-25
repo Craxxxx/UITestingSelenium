@@ -5,6 +5,7 @@ import java.util.Map;
 
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
+import org.testng.annotations.Test;
 
 //import driverManager
 import io.github.bonigarcia.wdm.WebDriverManager;
@@ -28,11 +29,12 @@ public class DriverManager {
             drivers.put(name, driver);
         } 
 
-        return drivers.get(name);//return the value which the drivers key name is pointing to
+        return drivers.get(name);//return the value which the drivers key name is pointing to it is the driver object
     }
 
     
     /** Quits **all** managed drivers and clears the registry. */
+    @Test
     public static void quitAll()
     {
         drivers.values().forEach(WebDriver::quit); //SO BASICALLY THE WebDriver::quit is just calling the quit method from the WebDriver interface
